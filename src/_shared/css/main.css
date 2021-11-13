@@ -1,0 +1,68 @@
+*,
+*::after,
+*::before {
+  box-sizing: inherit !important;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box !important;
+  font-size: 62.5% !important; /*1rem = 10px*/
+  scroll-behavior: smooth;
+}
+
+body {
+  padding: 5rem 20rem !important;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+/*BIG DESKTOP*/
+@media (max-width: 112.5em) {
+  html {
+    font-size: 75% !important;
+  }
+}
+
+/*TAB LANDSCAPE*/
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25% !important;
+  }
+}
+/*TAB PORTRAIT*/
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50% !important;
+  }
+
+  body {
+    padding: 0 !important;
+  }
+}
+
+/*PHONE*/
+@media (max-width: 37.5em) {
+  html {
+    font-size: 50% !important;
+  }
+
+  :root {
+    --toolbar-height-standard: 8rem;
+  }
+}
+
+/*BIG DESKTOP*/
+@media (max-width: 112.5em) {
+}
+
+/*TAB LANDSCAPE*/
+@media (max-width: 75em) {
+}
+/*TAB PORTRAIT*/
+@media (max-width: 56.25em) {
+}
+
+/*PHONE*/
+@media (max-width: 37.5em) {
+}

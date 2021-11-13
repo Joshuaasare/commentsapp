@@ -1,0 +1,54 @@
+.comment {
+  border-left: 3px solid rgb(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.comment__body {
+  height: 100rem;
+}
+
+.comment__group {
+  padding-left: 3rem;
+}
+
+.comment__avatar {
+  padding: 1rem 1rem 1rem 1rem;
+  display: inline-block;
+  position: absolute;
+  transform: translate(-50%, -35%);
+  background-color: white;
+  display: flex;
+}
+
+.comment__avatar > .avatar {
+  background-color: antiquewhite;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 3rem;
+}
+
+.comment__thumbnail {
+}
+
+.comment__thumbnail--user {
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0, 0.7);
+}
+
+.comment__thumbnail--days {
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0, 0.5);
+  padding: 0 0.5rem;
+}
+
+.comment__text {
+  padding: 1rem 0;
+}
+
+.comment__text > span {
+  font-size: 1.5rem;
+  color: rgb(0, 0, 0, 0.7);
+}
+
+.comment__toolbar {
+}
