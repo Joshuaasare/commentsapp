@@ -1,7 +1,7 @@
 .comment {
-  border-left: 3px solid rgb(0, 0, 0, 0.1);
+  border-left: 2px solid rgb(0, 0, 0, 0.1);
   position: relative;
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 
 .comment__body {
@@ -12,7 +12,7 @@
 }
 
 .comment__avatar {
-  padding: 1rem 1rem 1rem 1rem;
+  padding: 0.5rem 0.5rem;
   display: inline-block;
   position: absolute;
   transform: translate(-50%, -35%);
@@ -20,10 +20,17 @@
   display: flex;
 }
 
-.comment__avatar > .avatar {
+.comment__avatar > .avatar__large {
   background-color: antiquewhite;
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 3rem;
+}
+
+.comment__avatar > .avatar__small {
+  background-color: antiquewhite;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 3rem;
 }
 
@@ -31,22 +38,23 @@
 }
 
 .comment__thumbnail--user {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: rgb(0, 0, 0, 0.7);
 }
 
 .comment__thumbnail--days {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: rgba(0, 0, 0, 0.502);
   padding: 0 0.5rem;
 }
 
 .comment__text {
-  padding: 1rem 0;
+  padding-top: 0.5rem;
+  padding-bottom: 0.7rem;
 }
 
 .comment__text > span {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   color: rgba(0, 0, 0, 0.7);
 }
 
