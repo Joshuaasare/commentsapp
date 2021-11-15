@@ -9,7 +9,7 @@ interface Props {
   viewBox?: string;
   className?: string;
   name: string;
-  color: string;
+  color?: string;
 }
 
 export function getPath(iconName: string) {

@@ -1,10 +1,10 @@
 .comment {
   border-left: 3px solid rgb(0, 0, 0, 0.1);
   position: relative;
+  padding-top: 2rem;
 }
 
 .comment__body {
-  height: 100rem;
 }
 
 .comment__group {
@@ -22,8 +22,8 @@
 
 .comment__avatar > .avatar {
   background-color: antiquewhite;
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 3rem;
 }
 
@@ -37,7 +37,7 @@
 
 .comment__thumbnail--days {
   font-size: 1.2rem;
-  color: rgb(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.502);
   padding: 0 0.5rem;
 }
 
@@ -46,9 +46,43 @@
 }
 
 .comment__text > span {
-  font-size: 1.5rem;
-  color: rgb(0, 0, 0, 0.7);
+  font-size: 1.4rem;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .comment__toolbar {
+  flex-direction: row;
+  display: flex;
+}
+
+.comment__icon-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 0.8rem;
+}
+
+.comment__link-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 0.8rem;
+  cursor: pointer;
+}
+
+.comment__icon-group > span {
+  font-size: 1.2rem;
+  padding-left: 0.5rem;
+  font-weight: 600;
+}
+
+.comment__link-group > span {
+  font-size: 1.2rem;
+  padding-left: 0.5rem;
+  font-weight: 600;
+  color: #00000066;
+}
+
+.comment__icon {
+  cursor: pointer;
 }

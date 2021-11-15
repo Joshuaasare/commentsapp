@@ -3,9 +3,13 @@ export type CommentResult = {
   text: string;
   upvotes: number;
   downvotes: number;
+  id: string;
   createdTime: Date;
-  replies?: CommentResult[];
   editedTime?: Date;
+  parent?: CommentResult | null;
+  ForwardSibling?: CommentResult | null;
+  BackwardSibling?: CommentResult | null;
+  FirstChild?: CommentResult | null;
 };
 
 export type UserResult = {

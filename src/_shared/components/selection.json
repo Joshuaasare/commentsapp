@@ -6,19 +6,13 @@
         "paths": [
           "M921.6 307.2v358.4c0 56.32-46.080 102.4-102.4 102.4h-204.8v153.6l-204.8-153.6h-204.8c-56.371 0-102.4-46.080-102.4-102.4v-358.4c0-56.32 46.029-102.4 102.4-102.4h614.4c56.32 0 102.4 46.080 102.4 102.4z"
         ],
-        "attrs": [
-          {}
-        ],
+        "attrs": [{}],
         "isMulticolor": false,
         "isMulticolor2": false,
-        "tags": [
-          "message"
-        ],
+        "tags": ["message"],
         "grid": 20
       },
-      "attrs": [
-        {}
-      ],
+      "attrs": [{}],
       "properties": {
         "order": 1,
         "id": 0,
@@ -34,19 +28,13 @@
         "paths": [
           "M358.4 512v409.6h307.2v-409.6h256l-409.6-409.6-409.6 409.6h256z"
         ],
-        "attrs": [
-          {}
-        ],
+        "attrs": [{}],
         "isMulticolor": false,
         "isMulticolor2": false,
-        "tags": [
-          "arrow-thick-up"
-        ],
+        "tags": ["arrow-thick-up"],
         "grid": 20
       },
-      "attrs": [
-        {}
-      ],
+      "attrs": [{}],
       "properties": {
         "order": 1,
         "id": 2,
@@ -62,19 +50,13 @@
         "paths": [
           "M358.4 512v-409.6h307.2v409.6h256l-409.6 409.6-409.6-409.6h256z"
         ],
-        "attrs": [
-          {}
-        ],
+        "attrs": [{}],
         "isMulticolor": false,
         "isMulticolor2": false,
-        "tags": [
-          "arrow-thick-down"
-        ],
+        "tags": ["arrow-thick-down"],
         "grid": 20
       },
-      "attrs": [
-        {}
-      ],
+      "attrs": [{}],
       "properties": {
         "order": 2,
         "id": 1,

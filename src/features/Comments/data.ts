@@ -1,9 +1,7 @@
-import React, { useState } from "react";
 import { CommentResult } from "src/_shared/types";
-import CommentItem from "./CommentItem";
 
-const data = {
-  text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed sint rerum porro similique ducimus consequatur quasi illo numquam ea, autem error velit animi tempore expedita. Similique laboriosam aliquid beatae voluptates",
+export const data: CommentResult = {
+  text: "lorem1",
   upvotes: 0,
   downvotes: 0,
   id: "1",
@@ -29,13 +27,3 @@ const data = {
     ForwardSibling: null,
   },
 };
-
-const Comments: React.FC = () => {
-  return (
-    <div>
-      <CommentItem data={data} />
-    </div>
-  );
-};
-
-export default Comments;
