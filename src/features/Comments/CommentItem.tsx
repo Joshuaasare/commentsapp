@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Icon } from "src/_shared/components";
 import { CommentResult } from "src/_shared/types";
+import CommmentForm from "./CommmentForm";
 import "./css/commentItem.css";
 
 interface Props {
@@ -14,7 +15,7 @@ interface Props {
 
 const CommentItem: React.FC<Props> = ({ data, addComment }) => {
   const [showReply, setShowReply] = useState(!data);
-  const [text, setText] = useState("");
+
   const renderComment = (comment?: CommentResult) => {
     return (
       <>
@@ -82,20 +83,7 @@ const CommentItem: React.FC<Props> = ({ data, addComment }) => {
         </div>
 
         {showReply && (
-          <span>
-            <textarea onChange={(ev) => setText(ev.currentTarget.value)} />
-            <button
-              onClick={() => {
-                const accPath = comment?.path
-                  ? comment?.path + "." + "firstChild"
-                  : "firstChild";
-                addComment && addComment(text, accPath);
-                setShowReply(false);
-              }}
-            >
-              add comment
-            </button>
-          </span>
+          <CommmentForm data={comment} onSubmit={() => setShowReply(false)} />
         )}
       </>
     );
