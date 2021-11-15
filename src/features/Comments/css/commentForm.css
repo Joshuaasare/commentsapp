@@ -5,21 +5,28 @@
   margin-top: 1rem;
 }
 
-.comment-form > .button {
+.comment-form button {
   align-items: center;
   justify-content: center;
   padding-right: 1rem;
   padding-left: 1rem;
-  background-color: #373774;
   border: none;
   color: white;
   border-radius: 0.4rem;
-  margin: 0 2rem;
   height: 3rem;
   cursor: pointer;
+  margin-left: 1rem;
 }
 
-.comment-form > .textarea {
+.comment-form .add-button {
+  background-color: #373774;
+}
+
+.comment-form .close-button {
+  background-color: #7c283d;
+}
+
+.comment-form .textarea {
   min-width: 35rem;
   max-width: 40rem;
   font-size: 1.3rem;
