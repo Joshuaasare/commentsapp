@@ -5,6 +5,7 @@ import get from "lodash.get";
 import { v4 as uuidV4 } from "uuid";
 import CommmentForm from "./CommmentForm";
 import "./css/comments.css";
+import { generateRandomUser } from "src/_shared/utils";
 
 const Comments: React.FC = () => {
   const [comment, setComment] = useState<CommentResult | null | undefined>(
@@ -52,25 +53,27 @@ const Comments: React.FC = () => {
    */
   const addComment = (text: string, accPath = "firstChild") => {
     if (!comment) {
-      const newComment = {
+      const newComment: CommentResult = {
         text,
         id: uuidV4(),
         createdTime: new Date(),
         upvotes: 0,
         downvotes: 0,
+        user: generateRandomUser(),
       };
 
       return setComment(newComment);
     }
 
     if (!get(comment, accPath)) {
-      const newComment = {
+      const newComment: CommentResult = {
         text,
         id: uuidV4(),
         path: accPath,
         createdTime: new Date(),
         upvotes: 0,
         downvotes: 0,
+        user: generateRandomUser(),
       };
 
       setValueToPath(accPath, newComment, comment);

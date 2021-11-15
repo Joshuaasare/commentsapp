@@ -20,15 +20,17 @@ const CommentItem: React.FC<Props> = ({ data, addComment }) => {
     return (
       <>
         <div className="comment__avatar">
-          <span className={comment?.path ? "avatar__small" : "avatar__large"}>
-            {}
-          </span>
+          <div className={comment?.path ? "avatar__small" : "avatar__large"}>
+            <img src={comment?.user?.avatar} alt="avatar" />
+          </div>
         </div>
 
         <div className="comment__body">
           <div className="comment__group">
             <div className="comment__thumbnail">
-              <span className="comment__thumbnail--user">nomis8576</span>
+              <span className="comment__thumbnail--user">
+                {comment?.user?.username}
+              </span>
               <span className="comment__thumbnail--days">23 days ago</span>
             </div>
 
@@ -81,16 +83,6 @@ const CommentItem: React.FC<Props> = ({ data, addComment }) => {
             </div>
           </div>
         </div>
-
-        {showReply && (
-          <div style={{ paddingLeft: "3rem" }}>
-            <CommmentForm
-              data={comment}
-              addComment={addComment}
-              onSubmit={() => setShowReply(false)}
-            />
-          </div>
-        )}
       </>
     );
   };
@@ -107,6 +99,15 @@ const CommentItem: React.FC<Props> = ({ data, addComment }) => {
       </div>
       {data?.nextSibling && (
         <CommentItem data={data.nextSibling} addComment={addComment} />
+      )}
+      {showReply && (
+        <div style={{ paddingLeft: "1rem" }}>
+          <CommmentForm
+            data={data}
+            addComment={addComment}
+            onSubmit={() => setShowReply(false)}
+          />
+        </div>
       )}
     </React.Fragment>
   );
