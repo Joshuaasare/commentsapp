@@ -9,9 +9,10 @@ export type CommentResult = {
   nextSibling?: CommentResult | null;
   firstChild?: CommentResult | null;
   path?: string;
+  user?: UserResult;
 };
 
 export type UserResult = {
-  username: string;
+  username?: string;
   avatar: string;
 };

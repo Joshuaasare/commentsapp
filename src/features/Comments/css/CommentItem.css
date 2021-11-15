@@ -1,7 +1,7 @@
 .comment {
   border-left: 2px solid rgb(0, 0, 0, 0.1);
   position: relative;
-  padding-top: 1rem;
+  margin-top: 1rem;
 }
 
 .comment__body {

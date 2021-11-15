@@ -3,6 +3,8 @@ import { CommentResult } from "src/_shared/types";
 import CommentItem from "./CommentItem";
 import get from "lodash.get";
 import { v4 as uuidV4 } from "uuid";
+import CommmentForm from "./CommmentForm";
+import "./css/comments.css";
 
 const Comments: React.FC = () => {
   const [comment, setComment] = useState<CommentResult | null | undefined>(
@@ -58,7 +60,7 @@ const Comments: React.FC = () => {
         downvotes: 0,
       };
 
-      setComment(newComment);
+      return setComment(newComment);
     }
 
     if (!get(comment, accPath)) {
@@ -77,6 +79,15 @@ const Comments: React.FC = () => {
     accPath = accPath + "." + "nextSibling";
     addComment(text, accPath);
   };
+
+  if (!comment) {
+    return (
+      <div className="comment-header">
+        <span>Add the first comment</span>
+        <CommmentForm addComment={addComment} data={comment} />
+      </div>
+    );
+  }
 
   return <CommentItem data={comment} addComment={addComment} />;
 };

@@ -14,7 +14,7 @@ interface Props {
 }
 
 const CommentItem: React.FC<Props> = ({ data, addComment }) => {
-  const [showReply, setShowReply] = useState(!data);
+  const [showReply, setShowReply] = useState(false);
 
   const renderComment = (comment?: CommentResult) => {
     return (
@@ -83,7 +83,13 @@ const CommentItem: React.FC<Props> = ({ data, addComment }) => {
         </div>
 
         {showReply && (
-          <CommmentForm data={comment} onSubmit={() => setShowReply(false)} />
+          <div style={{ paddingLeft: "3rem" }}>
+            <CommmentForm
+              data={comment}
+              addComment={addComment}
+              onSubmit={() => setShowReply(false)}
+            />
+          </div>
         )}
       </>
     );
