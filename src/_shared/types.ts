@@ -3,7 +3,7 @@ export type CommentResult = {
   text?: string;
   upvotes?: number;
   downvotes?: number;
-  id?: string;
+  id: string;
   createdTime?: Date;
   editedTime?: Date;
   nextSibling?: CommentResult | null;

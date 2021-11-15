@@ -11,9 +11,16 @@ interface Props {
     accPath?: string,
     parent?: CommentResult | null | undefined
   ) => void;
+  focusedCommentId?: string | null;
+  setFocusedCommentId?: (id?: string | null) => void;
 }
 
-const CommentItem: React.FC<Props> = ({ data, addComment }) => {
+const CommentItem: React.FC<Props> = ({
+  data,
+  addComment,
+  focusedCommentId,
+  setFocusedCommentId,
+}) => {
   const [showReply, setShowReply] = useState(false);
 
   const renderComment = (comment?: CommentResult) => {
@@ -63,7 +70,9 @@ const CommentItem: React.FC<Props> = ({ data, addComment }) => {
 
               <span
                 className="comment__link-group"
-                onClick={() => setShowReply(true)}
+                onClick={() =>
+                  setFocusedCommentId && setFocusedCommentId(comment?.id)
+                }
               >
                 <Icon name="message" id="reply" size={1.5} color="#00000066" />
                 <span>Reply</span>
@@ -93,21 +102,33 @@ const CommentItem: React.FC<Props> = ({ data, addComment }) => {
         {data?.text && renderComment(data)}
         {data?.firstChild && (
           <div style={{ paddingLeft: 20 }}>
-            <CommentItem data={data.firstChild} addComment={addComment} />
+            <CommentItem
+              data={data.firstChild}
+              addComment={addComment}
+              focusedCommentId={focusedCommentId}
+              setFocusedCommentId={setFocusedCommentId}
+            />
+          </div>
+        )}
+
+        {/**show the reply form only when reply is clicked and comment is set as focused*/}
+        {focusedCommentId === data?.id && (
+          <div style={{ paddingLeft: "1rem" }}>
+            <CommmentForm
+              data={data}
+              addComment={addComment}
+              onSubmit={() => setFocusedCommentId && setFocusedCommentId(null)}
+            />
           </div>
         )}
       </div>
       {data?.nextSibling && (
-        <CommentItem data={data.nextSibling} addComment={addComment} />
-      )}
-      {showReply && (
-        <div style={{ paddingLeft: "1rem" }}>
-          <CommmentForm
-            data={data}
-            addComment={addComment}
-            onSubmit={() => setShowReply(false)}
-          />
-        </div>
+        <CommentItem
+          data={data.nextSibling}
+          addComment={addComment}
+          focusedCommentId={focusedCommentId}
+          setFocusedCommentId={setFocusedCommentId}
+        />
       )}
     </React.Fragment>
   );

@@ -11,6 +11,9 @@ const Comments: React.FC = () => {
   const [comment, setComment] = useState<CommentResult | null | undefined>(
     null
   );
+  const [focusedCommentId, setFocusedCommentId] = useState<
+    string | null | undefined
+  >(null);
 
   /**
    *
@@ -92,7 +95,14 @@ const Comments: React.FC = () => {
     );
   }
 
-  return <CommentItem data={comment} addComment={addComment} />;
+  return (
+    <CommentItem
+      data={comment}
+      addComment={addComment}
+      focusedCommentId={focusedCommentId}
+      setFocusedCommentId={setFocusedCommentId}
+    />
+  );
 };
 
 export default Comments;
