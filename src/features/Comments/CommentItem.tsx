@@ -2,7 +2,12 @@ import React from "react";
 import { Icon } from "src/_shared/components";
 import { CommentResult } from "src/_shared/types";
 import CommmentForm from "./CommmentForm";
+import TimeAgo from "javascript-time-ago";
+import en from "javascript-time-ago/locale/en.json";
 import "./css/commentItem.css";
+
+// English.
+TimeAgo.addDefaultLocale(en);
 
 interface Props {
   data?: CommentResult | null;
@@ -23,6 +28,7 @@ const CommentItem: React.FC<Props> = ({
   setFocusedCommentId,
   onVote,
 }) => {
+  const timeAgo = new TimeAgo("en-US");
   const renderComment = (comment?: CommentResult) => {
     return (
       <>
@@ -38,7 +44,9 @@ const CommentItem: React.FC<Props> = ({
               <span className="comment__thumbnail--user">
                 {comment?.user?.username}
               </span>
-              <span className="comment__thumbnail--days">23 days ago</span>
+              <span className="comment__thumbnail--days">
+                {timeAgo.format(comment?.createdTime as Date)}
+              </span>
             </div>
 
             <div className="comment__text">

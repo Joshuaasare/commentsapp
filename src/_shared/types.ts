@@ -4,7 +4,7 @@ export type CommentResult = {
   upvotes: number;
   downvotes: number;
   id: string;
-  createdTime?: Date;
+  createdTime: Date;
   editedTime?: Date;
   nextSibling?: CommentResult | null;
   firstChild?: CommentResult | null;
