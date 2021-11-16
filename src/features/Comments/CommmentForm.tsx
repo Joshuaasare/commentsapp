@@ -10,20 +10,23 @@ interface Props {
   data?: CommentResult | null;
   onSubmit?: () => void;
   onClose?: () => void;
+  defaultValue?: string;
 }
 const CommmentForm: React.FC<Props> = ({
   addComment,
   data,
   onSubmit,
   onClose,
+  defaultValue,
 }) => {
-  const [text, setText] = useState("");
+  const [text, setText] = useState(defaultValue);
   return (
     <div className="comment-form">
       <textarea
         onChange={(ev) => setText(ev.currentTarget.value)}
         className="textarea"
         inputMode="text"
+        defaultValue={defaultValue}
       />
       <span>
         <button

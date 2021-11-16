@@ -55,6 +55,7 @@ const Comments: React.FC = () => {
    * comment to the last sibling of the child node
    */
   const addComment = (text: string, accPath = "firstChild") => {
+    // add the parent node as the first comment
     if (!comment) {
       const newComment: CommentResult = {
         text,
