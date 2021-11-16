@@ -1,8 +1,8 @@
 // contains all the types used in the project
 export type CommentResult = {
   text?: string;
-  upvotes?: number;
-  downvotes?: number;
+  upvotes: number;
+  downvotes: number;
   id: string;
   createdTime?: Date;
   editedTime?: Date;

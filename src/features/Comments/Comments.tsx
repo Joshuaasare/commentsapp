@@ -62,6 +62,7 @@ const Comments: React.FC = () => {
         createdTime: new Date(),
         upvotes: 0,
         downvotes: 0,
+        path: "",
         user: generateRandomUser(),
       };
 
@@ -86,6 +87,30 @@ const Comments: React.FC = () => {
     addComment(text, accPath);
   };
 
+  const onVote = (type: "upvote" | "downvote", path?: string) => {
+    if (path && type && comment) {
+      const value = get(comment, path) as CommentResult;
+      if (type === "upvote") {
+        value.upvotes += 1;
+      } else if (type === "downvote") {
+        value.downvotes += 1;
+      }
+
+      setValueToPath(path, value, comment);
+      return setComment({ ...comment });
+    }
+
+    if (!path && type && comment) {
+      if (type === "upvote") {
+        comment.upvotes += 1;
+      } else if (type === "downvote") {
+        comment.downvotes += 1;
+      }
+
+      return setComment({ ...comment });
+    }
+  };
+
   if (!comment) {
     return (
       <div className="comment-header">
@@ -101,6 +126,7 @@ const Comments: React.FC = () => {
       addComment={addComment}
       focusedCommentId={focusedCommentId}
       setFocusedCommentId={setFocusedCommentId}
+      onVote={onVote}
     />
   );
 };

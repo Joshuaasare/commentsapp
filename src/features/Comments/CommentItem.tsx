@@ -13,6 +13,7 @@ interface Props {
   ) => void;
   focusedCommentId?: string | null;
   setFocusedCommentId?: (id?: string | null) => void;
+  onVote?: (type: "upvote" | "downvote", path?: string) => void;
 }
 
 const CommentItem: React.FC<Props> = ({
@@ -20,9 +21,8 @@ const CommentItem: React.FC<Props> = ({
   addComment,
   focusedCommentId,
   setFocusedCommentId,
+  onVote,
 }) => {
-  const [showReply, setShowReply] = useState(false);
-
   const renderComment = (comment?: CommentResult) => {
     return (
       <>
@@ -53,19 +53,21 @@ const CommentItem: React.FC<Props> = ({
                   size={1.5}
                   color="#00000066"
                   className="comment__icon"
+                  onClick={() => onVote && onVote("upvote", comment?.path)}
                 />
-                <span className="vote-text">{comment?.upvotes}</span>
-              </span>
 
-              <span className="comment__icon-group">
+                <span className="vote-text">
+                  {comment && comment?.upvotes - comment?.downvotes}
+                </span>
+
                 <Icon
                   name="arrow-thick-down"
                   id="downvote"
                   size={1.5}
                   color="#00000066"
                   className="comment__icon"
+                  onClick={() => onVote && onVote("downvote", comment?.path)}
                 />
-                <span className="vote-text">{comment?.downvotes}</span>
               </span>
 
               <span
@@ -107,6 +109,7 @@ const CommentItem: React.FC<Props> = ({
               addComment={addComment}
               focusedCommentId={focusedCommentId}
               setFocusedCommentId={setFocusedCommentId}
+              onVote={onVote}
             />
           </div>
         )}
@@ -129,6 +132,7 @@ const CommentItem: React.FC<Props> = ({
           addComment={addComment}
           focusedCommentId={focusedCommentId}
           setFocusedCommentId={setFocusedCommentId}
+          onVote={onVote}
         />
       )}
     </React.Fragment>
