@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { CommentResult } from "src/_shared/types";
+import { CommentResult } from "../../_shared/types";
 import "./css/commentForm.css";
+
 interface Props {
   addComment?: (
     text: string,

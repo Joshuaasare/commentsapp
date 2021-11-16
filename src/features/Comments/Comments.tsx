@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CommentResult } from "src/_shared/types";
+import { CommentResult } from "../../_shared/types";
 import CommentItem from "./CommentItem";
 import get from "lodash.get";
 import { v4 as uuidV4 } from "uuid";

@@ -1,6 +1,6 @@
 import React from "react";
-import { Icon } from "src/_shared/components";
-import { CommentResult } from "src/_shared/types";
+import { Icon } from "../../_shared/components";
+import { CommentResult } from "../../_shared/types";
 import CommmentForm from "./CommmentForm";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en.json";
