@@ -114,6 +114,19 @@ const CommentItem: React.FC<Props> = ({
     <React.Fragment>
       <div className="comment">
         {data?.text && renderComment(data)}
+
+        {/**show the reply form only when reply is clicked and comment is set as focused*/}
+        {focusedCommentId === data?.id && (
+          <div style={{ paddingLeft: "3rem", paddingBottom: "0.5rem" }}>
+            <CommmentForm
+              data={data}
+              addComment={addComment}
+              onSubmit={() => setFocusedCommentId && setFocusedCommentId(null)}
+              onClose={() => setFocusedCommentId && setFocusedCommentId(null)}
+            />
+          </div>
+        )}
+
         {/**render the immediate child comment with
          * formatting to create* hierachical thread-like UI
          */}
@@ -125,18 +138,6 @@ const CommentItem: React.FC<Props> = ({
               focusedCommentId={focusedCommentId}
               setFocusedCommentId={setFocusedCommentId}
               onVote={onVote}
-            />
-          </div>
-        )}
-
-        {/**show the reply form only when reply is clicked and comment is set as focused*/}
-        {focusedCommentId === data?.id && (
-          <div style={{ paddingLeft: "2rem", paddingBottom: "0.5rem" }}>
-            <CommmentForm
-              data={data}
-              addComment={addComment}
-              onSubmit={() => setFocusedCommentId && setFocusedCommentId(null)}
-              onClose={() => setFocusedCommentId && setFocusedCommentId(null)}
             />
           </div>
         )}
