@@ -68,21 +68,21 @@
   flex-direction: row;
   align-items: center;
   margin-right: 0.4rem;
-  margin-left: 0.4rem;
+  margin-left: 0.7rem;
   cursor: pointer;
 }
 
 .comment__icon-group > span {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
 }
 
 .comment__link-group > span {
-  font-size: 1.2rem;
-  padding-left: 0.5rem;
+  font-size: 1rem;
   font-weight: 600;
+  margin-left: 0.5rem;
   color: #00000066;
 }
 

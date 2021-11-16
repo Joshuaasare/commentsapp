@@ -4,8 +4,8 @@ import CommentItem from "./CommentItem";
 import get from "lodash.get";
 import { v4 as uuidV4 } from "uuid";
 import CommmentForm from "./CommmentForm";
-import "./css/comments.css";
 import { generateRandomUser } from "src/_shared/utils";
+import "./css/comments.css";
 
 const Comments: React.FC = () => {
   const [comment, setComment] = useState<CommentResult | null | undefined>(
@@ -62,7 +62,6 @@ const Comments: React.FC = () => {
         createdTime: new Date(),
         upvotes: 0,
         downvotes: 0,
-        path: "",
         user: generateRandomUser(),
       };
 
@@ -83,11 +82,18 @@ const Comments: React.FC = () => {
       setValueToPath(accPath, newComment, comment);
       return setComment({ ...comment });
     }
-    accPath = accPath + "." + "nextSibling";
+    accPath = `${accPath}.nextSibling`;
     addComment(text, accPath);
   };
 
+  /**
+   *
+   * @param type type of vote
+   * @param path path to the node
+   * @returns void
+   */
   const onVote = (type: "upvote" | "downvote", path?: string) => {
+    // any valid node except parent
     if (path && type && comment) {
       const value = get(comment, path) as CommentResult;
       if (type === "upvote") {
@@ -100,6 +106,7 @@ const Comments: React.FC = () => {
       return setComment({ ...comment });
     }
 
+    // parent node
     if (!path && type && comment) {
       if (type === "upvote") {
         comment.upvotes += 1;

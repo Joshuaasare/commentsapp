@@ -30,7 +30,7 @@ const CommmentForm: React.FC<Props> = ({
           className="add-button"
           onClick={() => {
             const accPath = data?.path
-              ? data?.path + "." + "firstChild"
+              ? `${data.path}.firstChild`
               : "firstChild";
             text && addComment && addComment(text, accPath);
             onSubmit && onSubmit();

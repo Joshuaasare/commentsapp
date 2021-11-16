@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Icon } from "src/_shared/components";
 import { CommentResult } from "src/_shared/types";
 import CommmentForm from "./CommmentForm";
@@ -50,7 +50,7 @@ const CommentItem: React.FC<Props> = ({
                 <Icon
                   name="arrow-thick-up"
                   id="upvote"
-                  size={1.5}
+                  size={1.3}
                   color="#00000066"
                   className="comment__icon"
                   onClick={() => onVote && onVote("upvote", comment?.path)}
@@ -63,7 +63,7 @@ const CommentItem: React.FC<Props> = ({
                 <Icon
                   name="arrow-thick-down"
                   id="downvote"
-                  size={1.5}
+                  size={1.3}
                   color="#00000066"
                   className="comment__icon"
                   onClick={() => onVote && onVote("downvote", comment?.path)}
