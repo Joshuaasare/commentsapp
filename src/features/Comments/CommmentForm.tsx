@@ -21,8 +21,9 @@ const CommmentForm: React.FC<Props> = ({
 }) => {
   const [text, setText] = useState(defaultValue);
   return (
-    <div className="comment-form">
+    <div data-testid="comment-form" className="comment-form">
       <textarea
+        data-testid="form-textarea"
         onChange={(ev) => setText(ev.currentTarget.value)}
         className="textarea"
         inputMode="text"
@@ -30,6 +31,7 @@ const CommmentForm: React.FC<Props> = ({
       />
       <span>
         <button
+          data-testid="form-add-button"
           className="add-button"
           onClick={() => {
             const accPath = data?.path
@@ -42,7 +44,11 @@ const CommmentForm: React.FC<Props> = ({
           Add comment
         </button>
         {onClose && (
-          <button className="close-button" onClick={onClose}>
+          <button
+            data-testid="form-close-button"
+            className="close-button"
+            onClick={onClose}
+          >
             close
           </button>
         )}
