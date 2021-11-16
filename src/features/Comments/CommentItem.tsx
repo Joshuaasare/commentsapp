@@ -6,8 +6,12 @@ import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en.json";
 import "./css/commentItem.css";
 
-// English.
 TimeAgo.addDefaultLocale(en);
+
+/**
+ * Each comment renders its content,
+ * its child, and its immediate sibling recursively
+ */
 
 interface Props {
   data?: CommentResult | null;
@@ -110,6 +114,9 @@ const CommentItem: React.FC<Props> = ({
     <React.Fragment>
       <div className="comment">
         {data?.text && renderComment(data)}
+        {/**render the immediate child comment with
+         * formatting to create* hierachical thread-like UI
+         */}
         {data?.firstChild && (
           <div style={{ paddingLeft: 20 }}>
             <CommentItem

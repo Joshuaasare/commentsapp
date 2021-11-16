@@ -8,9 +8,15 @@ import { generateRandomUser } from "src/_shared/utils";
 import "./css/comments.css";
 
 const Comments: React.FC = () => {
+  /**
+   * comment is a linked list where each node (comment)
+   * has a reference to the  immediate child comment
+   * and the immediate sibling comment
+   */
   const [comment, setComment] = useState<CommentResult | null | undefined>(
     null
   );
+
   const [focusedCommentId, setFocusedCommentId] = useState<
     string | null | undefined
   >(null);
@@ -29,6 +35,9 @@ const Comments: React.FC = () => {
   ) {
     let i = 0;
 
+    /**
+     * accesses the deepest node of the path by traversing
+     */
     let paths = path.split(".") as ["nextSibling" | "firstChild"];
     for (i = 0; i < paths.length - 1; i++) {
       if (obj?.[paths[i]]) {
@@ -36,6 +45,9 @@ const Comments: React.FC = () => {
       }
     }
 
+    /**
+     * assigns the value to the location of the path
+     */
     if (obj) {
       obj[paths[i]] = value;
     }
