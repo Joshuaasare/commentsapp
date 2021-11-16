@@ -124,7 +124,7 @@ const CommentItem: React.FC<Props> = ({
 
         {/**show the reply form only when reply is clicked and comment is set as focused*/}
         {focusedCommentId === data?.id && (
-          <div style={{ paddingLeft: "1rem", paddingBottom: "0.5rem" }}>
+          <div style={{ paddingLeft: "2rem", paddingBottom: "0.5rem" }}>
             <CommmentForm
               data={data}
               addComment={addComment}

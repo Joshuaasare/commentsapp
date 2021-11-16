@@ -13,6 +13,6 @@ export type CommentResult = {
 };
 
 export type UserResult = {
-  username?: string;
-  avatar: string;
+  username: string;
+  avatar?: string;
 };
