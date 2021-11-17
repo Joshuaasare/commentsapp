@@ -37,7 +37,15 @@ const CommentItem: React.FC<Props> = ({
     return (
       <>
         <div className="comment__avatar">
-          <div className={comment?.path ? "avatar__small" : "avatar__large"}>
+          <div
+            className={
+              // use a bigger avatar size for root comments in the thread
+              !comment?.path ||
+              comment.path.split(".").every((val) => val === "nextSibling")
+                ? "avatar__large"
+                : "avatar__small"
+            }
+          >
             <img src={comment?.user?.avatar} alt="avatar" />
           </div>
         </div>
@@ -123,6 +131,7 @@ const CommentItem: React.FC<Props> = ({
               addComment={addComment}
               onSubmit={() => setFocusedCommentId && setFocusedCommentId(null)}
               onClose={() => setFocusedCommentId && setFocusedCommentId(null)}
+              submitButtonText="Reply"
             />
           </div>
         )}

@@ -12,7 +12,36 @@ const Comments: React.FC = () => {
    * comment is a linked list where each node (comment)
    * has a reference to the  immediate child comment
    * and the immediate sibling comment
+   * 
+   * 
+   * 
+   * const exampleList = {
+    ...otherProps,
+    path: null,
+    firstChild: {
+      path: "firstChild",
+      ...otherProps,
+      firstChild: {
+        path: "firstChild.firstChild",
+        ...otherProps
+      },
+      nextSibling: {
+        path: "firstChild.nextSibling",
+        ...otherProps,
+        firstChild: {
+          ...otherProps,
+          path: "firstChild.nextSibling.nextSibling"
+        },
+      }
+    },
+    nextSibling: {
+      path: "nextSibling",
+      ...otherProps
+    }
+  }
+   *
    */
+
   const [comment, setComment] = useState<CommentResult | null | undefined>(
     null
   );
@@ -141,13 +170,28 @@ const Comments: React.FC = () => {
   }
 
   return (
-    <CommentItem
-      data={comment}
-      addComment={addComment}
-      focusedCommentId={focusedCommentId}
-      setFocusedCommentId={setFocusedCommentId}
-      onVote={onVote}
-    />
+    <>
+      <CommentItem
+        data={comment}
+        addComment={addComment}
+        focusedCommentId={focusedCommentId}
+        setFocusedCommentId={setFocusedCommentId}
+        onVote={onVote}
+      />
+      {/**
+       * Form to add a new comment and start a thread
+       * this comment will always be a sibling node
+       * to the last sibling of the root comment
+       */}
+      {!focusedCommentId && (
+        <CommmentForm
+          defaultValue=""
+          data={comment}
+          addComment={(text, accPath) => addComment(text, "nextSibling")}
+          submitButtonText="Add New Comment"
+        />
+      )}
+    </>
   );
 };
 

@@ -12,6 +12,7 @@ interface Props {
   onSubmit?: () => void;
   onClose?: () => void;
   defaultValue?: string;
+  submitButtonText?: string;
 }
 const CommmentForm: React.FC<Props> = ({
   addComment,
@@ -19,8 +20,10 @@ const CommmentForm: React.FC<Props> = ({
   onSubmit,
   onClose,
   defaultValue,
+  submitButtonText = "Add Comment",
 }) => {
   const [text, setText] = useState(defaultValue);
+
   return (
     <div data-testid="comment-form" className="comment-form">
       <textarea
@@ -29,6 +32,7 @@ const CommmentForm: React.FC<Props> = ({
         className="textarea"
         inputMode="text"
         defaultValue={defaultValue}
+        value={text}
       />
       <span>
         <button
@@ -38,11 +42,13 @@ const CommmentForm: React.FC<Props> = ({
             const accPath = data?.path
               ? `${data.path}.firstChild`
               : "firstChild";
+
             text && addComment && addComment(text, accPath);
+            setText("");
             onSubmit && onSubmit();
           }}
         >
-          Add comment
+          {submitButtonText}
         </button>
         {onClose && (
           <button
